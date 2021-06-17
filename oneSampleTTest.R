@@ -12,4 +12,6 @@ df <- read.csv(FILE_PATH, header=HEADER, sep=SEP)
 
 df
 
-t.test(df$Male, mu=THEORETICAL_MEAN)
+df_ttest <- t.test(df$Male, mu=THEORETICAL_MEAN)
+
+df_ttest

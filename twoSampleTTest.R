@@ -13,13 +13,17 @@ df
 
 df_stack <- stack(df)
 
+df_stack
+
 # Levene Test
 df_leveneTest <- leveneTest(values~ind, data=df_stack)
 
 df_leveneTest
 
 if (df_leveneTest$`Pr(>F)`[1] > 0.05) {
-  t.test(values~ind, data=df_stack, var.equal=T)
+  df_ttest <- t.test(values~ind, data=df_stack, var.equal=T)
 } else {
-  t.test(values~ind, data=df_stack, var.equal=F)
+  df_ttest <- t.test(values~ind, data=df_stack, var.equal=F)
 }
+
+df_ttest
